@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
 import java.util.ArrayList;
 import java.util.List;
 import com.aim17.myapplication.model.Task;
@@ -47,5 +49,15 @@ public class MainActivity extends AppCompatActivity {
         taskList.add(task1);
         taskList.add(task2);
         taskList.add(task3);
+    }
+
+    public void addTask(View view)
+    {
+        Task task4 = new Task();
+        task4.setName("Add Task Button Test");
+        task4.setDetails("Description");
+        taskList.add(task4);
+        adapter.notifyDataSetChanged();
+
     }
 }
