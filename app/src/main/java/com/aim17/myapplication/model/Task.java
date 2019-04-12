@@ -1,6 +1,8 @@
 package com.aim17.myapplication.model;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
     String name;
     String details;
     public String getName()
