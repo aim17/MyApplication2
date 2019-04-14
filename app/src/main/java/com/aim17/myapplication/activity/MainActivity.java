@@ -10,6 +10,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
 
         builder.show();
 
+
+    }
+
+    public void editTask(View view)
+    {
 
     }
 }
