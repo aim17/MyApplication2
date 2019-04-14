@@ -34,7 +34,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public int getItemCount() {
-        return tasks.size();
+        // original simply returns tasks size. Keep getting crash on launch because tasks is null
+        if (tasks != null){
+            return tasks.size();
+        } else {
+            return 0;
+        }
     }
 
 
