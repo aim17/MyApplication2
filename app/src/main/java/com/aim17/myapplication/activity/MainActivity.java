@@ -1,8 +1,10 @@
 package com.aim17.myapplication.activity;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -185,5 +187,30 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    // This function requires api level 26+
+    void sortTaskList(){
+        // Simple bubble sort because fuck it
+
+        boolean didSwap = true; // once no swaps were done, the list is sorted
+        while (didSwap){
+            didSwap = false;
+            for (int i=0; i < taskList.size()-2; i++){ // -2 because: size() is 1 bigger than max index, and we want second last element
+                Task thiselement = taskList.get(i);
+                Task nextelement = taskList.get(i+1);
+
+
+                //  To support older api's, a version of this function using different comparison method is necessary (Not currently implemented)
+                // compareTo returns positive if this is before argument (next).
+                    if (thiselement.getDue_date().compareTo(nextelement.getDue_date()) > 0){
+                        didSwap = true;
+                        taskList.set(i, nextelement);
+                        taskList.set(i+1, thiselement);
+                    }
+            }
+        }
+    }
+
+
 
 }
